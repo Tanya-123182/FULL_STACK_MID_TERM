@@ -1,0 +1,23 @@
+{
+  "name": "proctorshield-loadtest",
+  "version": "1.0.0",
+  "description": "High-concurrency load tester for ProctorShield",
+  "type": "module",
+  "scripts": {
+    "test": "node cli.js --clients=50 --duration=20",
+    "loadtest:50": "node cli.js --clients=50 --duration=20 --ramp-up=2000",
+    "loadtest:100": "node cli.js --clients=100 --duration=25 --ramp-up=3000",
+    "loadtest:250": "node cli.js --clients=250 --duration=30 --ramp-up=4000",
+    "loadtest:500": "node cli.js --clients=500 --duration=35 --ramp-up=5000",
+    "loadtest:multi": "node twoServerTest.js",
+    "loadtest:resilience": "node resilienceTest.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.10.3",
+    "socket.io": "^4.8.4",
+    "socket.io-client": "^4.8.4"
+  }
+}
