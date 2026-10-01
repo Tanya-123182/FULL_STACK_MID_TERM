@@ -1,0 +1,35 @@
+{
+  "name": "proctorshield-server",
+  "version": "1.0.0",
+  "description": "Backend server for ProctorShield",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "seed": "node src/seed.js",
+    "test": "node test-db.js && node test-auth.js && node test-exam-session.js && node test-realtime-scoring.js && node test-proctor-dashboard.js && node test-redis-scalability.js",
+    "loadtest:50": "node ../loadtest/cli.js --clients=50 --duration=20 --ramp-up=2000",
+    "loadtest:100": "node ../loadtest/cli.js --clients=100 --duration=25 --ramp-up=3000",
+    "loadtest:250": "node ../loadtest/cli.js --clients=250 --duration=30 --ramp-up=4000",
+    "loadtest:500": "node ../loadtest/cli.js --clients=500 --duration=35 --ramp-up=5000",
+    "loadtest:multi": "node ../loadtest/twoServerTest.js",
+    "loadtest:resilience": "node ../loadtest/resilienceTest.js"
+  },
+  "dependencies": {
+    "@socket.io/redis-adapter": "^8.3.0",
+    "@upstash/redis": "^1.39.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "ioredis": "^6.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.10.3",
+    "socket.io": "^4.8.4",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "socket.io-client": "^4.8.4"
+  }
+}
